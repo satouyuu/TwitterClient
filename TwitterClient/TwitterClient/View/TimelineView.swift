@@ -30,16 +30,16 @@ struct TimelineListRow: View {
     
     var body: some View {
         HStack{
-            Image("userImage", bundle: .main)
+            Image(tweet.user.imageName, bundle: .main)
                 .resizable()
                 .frame(width: 50.0, height: 50.0, alignment: .leading)
             
             
             VStack(alignment: .leading) {
                 HStack {
-                    Text(tweet.displayName)
+                    Text(tweet.user.displayName)
                     
-                    Text(tweet.userId)
+                    Text(tweet.user.userId)
                         .foregroundColor(.gray)
                 }
                 
