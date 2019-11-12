@@ -5,7 +5,13 @@ struct TimelineView: View {
     var viewModel = TimelineViewModel()
     
     var body: some View {
-        TimelineList(tweets: viewModel.tweets)
+        VStack{
+            Text("Timeline")
+                .foregroundColor(.blue)
+                .padding()
+            
+            TimelineList(tweets: viewModel.tweets)
+        }
     }
 }
 
@@ -23,7 +29,25 @@ struct TimelineListRow: View {
     var tweet: Tweet
     
     var body: some View {
-        Text(tweet.text)
+        HStack{
+            Image("userImage", bundle: .main)
+                .resizable()
+                .frame(width: 50.0, height: 50.0, alignment: .leading)
+            
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(tweet.displayName)
+                    
+                    Text(tweet.userId)
+                        .foregroundColor(.gray)
+                }
+                
+                Text(tweet.text)
+                    .padding(.top, 5)
+            }
+            
+        }
     }
 }
 
